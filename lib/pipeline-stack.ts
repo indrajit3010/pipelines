@@ -28,7 +28,7 @@ export class PipelineStack extends cdk.Stack {
       actions: [
         new GitHubSourceAction({
           owner: "indrajit3010",
-          repo: "aws-pipelines",
+          repo: "pipelines",
           branch: "main",
           actionName: "Pipeline_Source",
           oauthToken: SecretValue.secretsManager("GithubPipeline"),
