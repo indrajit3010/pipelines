@@ -11,6 +11,12 @@ const billingStack = new BillingStack(app, "BillingStack", {
   budgetAmount: 5,
   emailAddress: "pingale.indrajit@gmail.com",
 });
-const serviceStack = new ServiceStack(app, "ServiceStack");
-const prodStage = pipelineStack.addServiceStage(serviceStack, "Prod");
+const serviceStackTest = new ServiceStack(app, "ServiceStackTest", {
+  stageName: "Test",
+});
+const serviceStackProd = new ServiceStack(app, "ServiceStackProd", {
+  stageName: "Prod",
+});
+const testStage = pipelineStack.addServiceStage(serviceStackTest, "Test");
+const prodStage = pipelineStack.addServiceStage(serviceStackProd, "Prod");
 pipelineStack.addBillingStackToStage(billingStack, prodStage);
