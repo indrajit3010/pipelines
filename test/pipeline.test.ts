@@ -4,13 +4,11 @@ import * as Pipeline from "../lib/pipeline-stack";
 
 // example test. To run these tests, uncomment this file along with the
 // example resource in lib/pipeline-stack.ts
-test("Empty Stack", () => {
+test("Pipeline Stack", () => {
   const app = new cdk.App();
   // WHEN
   const stack = new Pipeline.PipelineStack(app, "MyTestStack");
   // THEN
   const template = Template.fromStack(stack);
-  template.templateMatches({
-    Resources: undefined,
-  });
+  expect(template).toMatchSnapshot();
 });
